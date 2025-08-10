@@ -24,6 +24,7 @@
 
 - Python **3.9+**
 - Install deps:
+
   ```bash
   pip install -r requirements.txt
   ```
@@ -34,30 +35,36 @@
 
 1. Put your `.csv` next to `convector.py`.
 2. Run:
+
    ```bash
    python convector.py
    ```
-3. Paste/drag your CSV path and confirm the detected columns.
-4. You’ll get **`output.jsonl`** in the current folder.
+   
+4. Paste/drag your CSV path and confirm the detected columns.
+5. You’ll get **`output.jsonl`** in the current folder.
 
 ---
 
 ## 🧪 Qdrant (Docker) — ultra‑quick setup
 
 ### 1) Start Qdrant locally
+
 ```bash
 docker run -p 6333:6333 --name qdrant --rm qdrant/qdrant
 ```
 
 ### 2) Create a collection with **384** dimensions
+
 ```bash
 curl -X PUT "http://localhost:6333/collections/my_collection"   -H "Content-Type: application/json"   -d '{"vectors": {"size": 384, "distance": "Cosine"}}'
 ```
 
 ### 3) Import your JSONL
+
 ```bash
 python qdrantimport.py
 ```
+
 - Enter `output.jsonl` path.
 - Press Enter to keep default Qdrant URL (`http://localhost:6333`).
 - Select `my_collection`.
@@ -68,6 +75,7 @@ python qdrantimport.py
 ## 🔍 Quick query test
 
 ### Search by vector
+
 ```bash
 curl -X POST "http://localhost:6333/collections/my_collection/points/search"   -H "Content-Type: application/json"   -d '{
     "vector": [0.1, 0.2, ... 384 floats ...],
@@ -76,6 +84,7 @@ curl -X POST "http://localhost:6333/collections/my_collection/points/search"   -
 ```
 
 ### Search by payload filter
+
 ```bash
 curl -X POST "http://localhost:6333/collections/my_collection/points/scroll"   -H "Content-Type: application/json"   -d '{
     "filter": {
@@ -86,8 +95,6 @@ curl -X POST "http://localhost:6333/collections/my_collection/points/scroll"   -
     "limit": 3
   }'
 ```
-
----
 
 ## 📝 Notes
 
