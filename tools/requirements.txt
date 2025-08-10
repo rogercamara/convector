@@ -1,0 +1,5 @@
+pandas>=2.0.0
+colorama>=0.4.6
+tqdm>=4.65.0
+sentence-transformers>=2.2.2
+qdrant-client>=1.6.4
