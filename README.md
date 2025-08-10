@@ -1,7 +1,7 @@
 # 🌀 Convector – CSV → JSONL (384‑dim Embeddings) + Qdrant Quickstart
 
-## Autor: Roger Camara
-### Feel free to contribute.
+### Autor: Roger Camara
+#### Feel free to contribute.
 
 
 **Convector** is a tiny, practical toolkit to turn `.csv` datasets into newline‑delimited JSON (`output.jsonl`) with **384‑dim** sentence embeddings and the original row as `payload`. It pairs with a simple importer to load the file into a local **Qdrant** vector DB (Docker).
