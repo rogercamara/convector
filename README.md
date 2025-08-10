@@ -11,9 +11,11 @@
 ## ✨ What you get
 
 - **convector.py** – reads your CSV, auto‑detects columns, builds one text per row, generates **384‑dim** embeddings, and writes `output.jsonl`:
+
   ```json
   {"id":"<uuid>", "text":"<row-as-text>", "vector":[...384 floats...], "payload":{...original row...}}
   ```
+  
 - **qdrantimport.py** – asks for `output.jsonl`, lists Qdrant collections, and imports in batches with a progress bar.
 
 > We use a **free** embedding model (`paraphrase-multilingual-MiniLM-L12-v2`) that outputs **384 dimensions**. If you switch to another provider (e.g., OpenAI), you can use larger vectors—just make sure your collection size matches.
